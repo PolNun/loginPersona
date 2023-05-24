@@ -1,7 +1,7 @@
 const btnLogin = document.getElementById('btnLogin');
 const inputUsername = document.getElementById('input_username');
 const inputPassword = document.getElementById('input_password');
-const divErrorMessage = document.getElementById("error_message");
+const divErrorMessage = document.getElementById('error_message');
 const regexUsername = /^[a-zA-Z0-9]+$/;
 const regexPassword = /^[^=;"]+$/;
 
@@ -47,7 +47,13 @@ btnLogin.addEventListener('click', async () => {
             })
         });
 
-        const data = await response.json();
-        console.log(data);
+        if (response.ok) {
+            const data = await response.json();
+            console.log(data);
+        } else {
+            const errorData = await response.json();
+            console.log(errorData);
+            divErrorMessage.textContent = errorData.message;
+        }
     }
 });
