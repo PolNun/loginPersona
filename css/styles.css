@@ -25,6 +25,7 @@ label {
 
 input {
     margin-bottom: 20px;
+    margin-right: 10px;
     padding: 10px;
     border-radius: 5px;
     border: 1px solid lightgray;
@@ -47,6 +48,7 @@ button {
     font-weight: bold;
     cursor: pointer;
     box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.335);
+    margin-left: 10px;
 }
 
 select {
@@ -81,4 +83,20 @@ a {
 
 #error_message {
     display: block;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 40px;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #c9c9c9;
 }
