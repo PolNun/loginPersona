@@ -17,6 +17,6 @@ btnLogin.addEventListener('click', async () => {
     });
 
     if (response.ok) {
-        window.location.href = 'admin.html';
+        window.location.href = 'inicio.html';
     }
 });

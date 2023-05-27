@@ -1,5 +1,5 @@
 const btnRegister = document.getElementById('btnRegister');
-const inputRole = document.getElementById('input_role');
+const selectRole = document.getElementById('select_role');
 const inputUsername = document.getElementById('input_username');
 const inputPassword = document.getElementById('input_password');
 const inputRepeatPassword = document.getElementById('input_repeat_password');
@@ -7,6 +7,10 @@ const regexUsername = /^[a-zA-Z0-9]+$/;
 const regexPassword = /^[^=;"]+$/;
 const baseUrl = 'http://localhost:8081';
 const divErrorMessage = document.getElementById('error_message');
+
+selectRole.addEventListener('change', () => {
+    console.log(selectRole.value);
+});
 
 function validateUsername() {
     if (regexUsername.test(inputUsername.value)) {
@@ -46,12 +50,16 @@ btnRegister.addEventListener('click', async () => {
                 body: JSON.stringify({
                     user: inputUsername.value,
                     password: inputPassword.value,
-                    role: inputRole.value
+                    role: selectRole.value
                 })
             });
 
             if (response.ok) {
-                window.location.href = 'admin.html';
+                if (selectRole.value === 'user')
+                    window.location.href = 'inicio.html';
+                else {
+                    window.location.href = 'admin.html';
+                }
             } else {
                 console.log(response);
                 divErrorMessage.textContent = errorData.message;

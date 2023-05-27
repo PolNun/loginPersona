@@ -49,6 +49,15 @@ button {
     box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.335);
 }
 
+select {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    outline: none;
+    box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.335);
+}
+
 button:hover {
     background-color: #e0e0e0;
 }
