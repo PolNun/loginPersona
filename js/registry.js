@@ -8,10 +8,6 @@ const regexPassword = /^[^=;"]+$/;
 const baseUrl = 'http://localhost:8081';
 const divErrorMessage = document.getElementById('error_message');
 
-selectRole.addEventListener('change', () => {
-    console.log(selectRole.value);
-});
-
 function validateUsername() {
     if (regexUsername.test(inputUsername.value)) {
         inputUsername.classList.remove('is-invalid');
@@ -34,9 +30,8 @@ inputPassword.addEventListener('blur', validatePassword);
 function validateForm() {
     if (regexUsername.test(inputUsername.value) && regexPassword.test(inputPassword.value)) {
         return true;
-    } else {
-        return false;
     }
+    return false;
 }
 
 btnRegister.addEventListener('click', async () => {
@@ -61,11 +56,10 @@ btnRegister.addEventListener('click', async () => {
                     window.location.href = 'admin.html';
                 }
             } else {
-                console.log(response);
                 divErrorMessage.textContent = errorData.message;
             }
         } else {
-            divErrorMessage.textContent = 'Passwords do not match';
+            divErrorMessage.textContent = 'Las contraseñas no coinciden';
         }
     }
 });
